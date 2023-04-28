@@ -1,0 +1,20 @@
+import string
+import random
+
+def generate_city_connections(n):
+    cities = random.sample(string.ascii_lowercase, n)
+    connections = {}
+    names = {}
+
+    for i in range(n):
+        for j in range(i+1, n):
+            weight = random.randint(50, 150)
+            connections[(cities[i], cities[j])] = weight
+
+    for city in cities:
+        names[city] = (0, 0)
+
+    return [connections, names]
+
+n = int(input())
+print(generate_city_connections(n))
